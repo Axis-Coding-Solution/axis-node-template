@@ -1,8 +1,6 @@
 import { Users } from '@/app/models';
-import { TokenServices } from '@/app/services';
 import { invalidResponse, successfulResponse } from '@/utils';
-
-const { createHash, createToken, verifyHash } = new TokenServices();
+import { createHash, createToken, verifyHash } from '../services';
 
 class AuthController {
   async login(req, res) {
@@ -57,4 +55,4 @@ class AuthController {
   };
 }
 
-export default AuthController;
+export const { login, register } = new AuthController();

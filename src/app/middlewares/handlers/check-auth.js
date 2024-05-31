@@ -1,9 +1,8 @@
-import { verify } from 'jsonwebtoken';
-import { envToken } from '@/config';
-import { invalidResponse } from '@/utils';
 import { Users } from '@/app/models';
+import { verifyToken } from '@/app/services';
+import { invalidResponse } from '@/utils';
 
-export default async function checkAuth(req, res, next) {
+export async function checkAuth(req, res, next) {
   const { authorization } = req.headers;
   if (!authorization) {
     return res
@@ -18,7 +17,7 @@ export default async function checkAuth(req, res, next) {
       .send(invalidResponse('Token was not provided', null));
   }
   try {
-    const { id, email, fullName } = verify(token, envToken);
+    const { id, email, fullName } = verifyToken(token);
     req.user = {
       id,
       email,

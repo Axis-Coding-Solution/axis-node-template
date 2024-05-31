@@ -1,4 +1,4 @@
-import AuthRouter from './auth.routes';
+import AuthRouter from './auth-routes';
 
 const BaseRouter = [];
 

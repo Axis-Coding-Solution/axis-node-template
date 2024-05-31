@@ -1,3 +1,5 @@
+import { COLLECTIONS } from '@/utils/constants';
+
 export default function getUsersModel({ Schema, model, models }) {
   const userSchema = new Schema({
     email: {
@@ -11,7 +13,8 @@ export default function getUsersModel({ Schema, model, models }) {
     },
   });
 
-  const Users = models.users || model('users', userSchema);
+  const Users =
+    models[COLLECTIONS.USERS] || model(COLLECTIONS.USERS, userSchema);
 
   return Users;
 }

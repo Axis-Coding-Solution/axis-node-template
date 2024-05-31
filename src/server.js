@@ -6,10 +6,10 @@ import logger from 'morgan';
 
 import { errorHandler } from '@/app/middlewares/handlers';
 import { envMode } from '@/config';
-import { AuthRouter, BaseRouter } from '@/routes/router';
+import { AuthRouter, BaseRouter } from '@/routes';
 
 // calling db
-import './config/db.connection';
+import './config/db-connection';
 
 const app = express();
 const logMode = envMode === 'prod' ? 'combined' : 'dev';

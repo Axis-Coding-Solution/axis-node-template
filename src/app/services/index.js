@@ -1,3 +1,1 @@
-import TokenServices from './token-services';
-
-export { TokenServices };
+export * from './token-services';

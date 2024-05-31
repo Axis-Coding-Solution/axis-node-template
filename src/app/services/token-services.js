@@ -48,4 +48,5 @@ class TokenServices {
   };
 }
 
-export default TokenServices;
+export const { createHash, verifyHash, createToken, verifyToken } =
+  new TokenServices();

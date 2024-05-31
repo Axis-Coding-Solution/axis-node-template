@@ -1,7 +1,7 @@
 import { check } from 'express-validator';
 import { Users } from '@/app/models';
 
-export default {
+export const authValidators = {
   login: [
     check('email', 'Email is required!')
       .trim()

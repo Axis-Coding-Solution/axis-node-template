@@ -1,6 +1,6 @@
 import { validationResult } from 'express-validator';
 
-export default function ValidateRequest(req) {
+export function validateRequest(req) {
   const errors = validationResult(req);
   if (errors.isEmpty()) return next();
   const extractedErrors = errors.array().map((err) => ({
